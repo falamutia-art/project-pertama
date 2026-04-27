@@ -1,0 +1,75 @@
+def tanya(pertanyaan):
+    while True:
+        jawab = input(pertanyaan + " (y/n): ").lower()
+        if jawab in ['y', 'n']:
+            return jawab == 'y'
+        else:
+            print("Masukkan hanya 'y' atau 'n'")
+
+
+def diagnosa_stroke():
+    print("=== Sistem Diagnosa Stroke ===")
+
+    # Tanya gejala
+    GS001 = tanya("Apakah mengalami penurunan kesadaran?")
+    GS002 = tanya("Apakah mengalami kejang mendadak?")
+    GS003 = tanya("Apakah pernapasan tidak teratur?")
+    GS004 = tanya("Apakah merasa gelisah?")
+    GS005 = tanya("Apakah menjadi lebih sensitif?")
+    GS006 = tanya("Apakah sakit kepala hebat?")
+    GS007 = tanya("Apakah mengalami gangguan penglihatan?")
+    GS008 = tanya("Apakah nyeri dada?")
+    GS009 = tanya("Apakah sulit menelan?")
+    GS010 = tanya("Apakah menjadi pelupa?")
+    GS011 = tanya("Apakah lemah/lesu?")
+    GS012 = tanya("Apakah sulit berbicara?")
+    GS013 = tanya("Apakah wajah lemah/asimetris?")
+    GS014 = tanya("Apakah punggung terasa linu?")
+    GS015 = tanya("Apakah lumpuh satu sisi tubuh?")
+    GS016 = tanya("Apakah kehilangan keseimbangan?")
+
+    # RULE + PENANGANAN
+    if GS001 and GS002 and GS003 and GS004 and GS005:
+        return (
+            "Diagnosa: Stroke Hemoragik (Berat)\n"
+            "Penanganan:\n"
+            "- Segera ke rumah sakit\n"
+            "- Tidak disarankan terapi mandiri\n"
+            "- Konsultasi dokter spesialis saraf"
+        )
+
+    elif GS005 and GS006 and GS007 and GS008:
+        return (
+            "Diagnosa: Stroke Non-Hemoragik Tingkat I\n"
+            "Penanganan:\n"
+            "- Perbaiki pola hidup dan pola makan\n"
+            "- Istirahat cukup\n"
+            "- Aktivitas ringan di rumah\n"
+            "- Konsumsi makanan sehat"
+        )
+
+    elif GS007 and GS009 and GS010 and GS011:
+        return (
+            "Diagnosa: Stroke Non-Hemoragik Tingkat II\n"
+            "Penanganan:\n"
+            "- Konsumsi buah dan sayur\n"
+            "- Minum obat sesuai anjuran dokter\n"
+            "- Lakukan pengobatan bertahap"
+        )
+
+    elif GS012 and GS013 and GS014 and GS015 and GS016:
+        return (
+            "Diagnosa: Stroke Non-Hemoragik Tingkat III\n"
+            "Penanganan:\n"
+            "- Segera ke dokter spesialis saraf\n"
+            "- Lakukan terapi saraf\n"
+            "- Konsultasi intensif"
+        )
+
+    else:
+        return "Tidak terdiagnosa / Gejala tidak lengkap"
+
+
+# ====== JALANKAN ======
+hasil = diagnosa_stroke()
+print("\n" + hasil)
